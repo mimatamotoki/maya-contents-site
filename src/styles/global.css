@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.rotate-animation {
+  transform: rotateX(0);
+  transition: transform 400ms ease;
+}
+
+.open-rotate {
+  transform: rotateX(180deg);
+}
+
+.height-animation {
+  height: 0;
+  transition: height 200ms ease-in-out;
+}
+
+.translate-x-50 {
+  transform: translateX(-50%);
+}
+
+.max-w-90 {
+  max-width: 90%;
+}
