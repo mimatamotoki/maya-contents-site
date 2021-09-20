@@ -113,6 +113,41 @@ const ACCORDION_ITEMS = [
         id: 1,
         link: "https://note.com/preview/nfec2bb6d0740?prev_access_key=413cc22731910fa3c6e0bfff84bb7ae5",
       },
+      {
+        label: "コバワレ",
+        id: 2,
+        link: "https://note.com/preview/n5601bc252588?prev_access_key=68e5c5139f1de43eaf0cd9dee79b7ad5",
+      },
+      {
+        label: "形崩れ",
+        id: 3,
+        link: "https://note.com/preview/ne6b2c3592514?prev_access_key=cc7878e5690f3b22ae7d581917283a92",
+      },
+      {
+        label: "キャンバスナイロン",
+        id: 4,
+        link: "https://note.com/preview/nb3651444233f?prev_access_key=82649e40e6c0d3878faddbfe3312ac58",
+      },
+      {
+        label: "内部汚れ",
+        id: 5,
+        link: "https://note.com/preview/n332cb9afb51b?prev_access_key=8a9043a428b4790bb372a88c02307483",
+      },
+      {
+        label: "ファスナー",
+        id: 6,
+        link: "https://note.com/preview/nb17c4f21d3c9?prev_access_key=360b7a989ea5454733cc6bceac0124f3",
+      },
+      {
+        label: "匂い消し",
+        id: 7,
+        link: "https://note.com/preview/n444a977474e8?prev_access_key=1f602e4fb3d5cad96cbdcd39ab439933",
+      },
+      {
+        label: "内部のベタ付き",
+        id: 8,
+        link: "https://note.com/preview/n467c204fed38?prev_access_key=9469708698732f17fc8234dbe2bda8b9",
+      },
     ],
   },
 ];
