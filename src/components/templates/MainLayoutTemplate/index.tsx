@@ -8,6 +8,7 @@ import PrimaryButton from "components/atoms/PrimaryButton";
 import Dialog from "components/atoms/Dialog";
 import { useRouter } from "next/dist/client/router";
 import { useAuthWatching } from "hooks/useAuthWatching";
+import { logout } from "../../../firebase/firebase";
 
 interface MainLayoutTemplateProps {
   children: ReactNode;
@@ -181,11 +182,16 @@ const MainLayoutTemplate = (props: MainLayoutTemplateProps) => {
     handleOpen();
   };
 
+  const handleDialogClick = () => {
+    logout();
+  };
+
   return (
     <>
       <Dialog
         open={open}
         onClose={handleDialogClose}
+        onClick={handleDialogClick}
         buttonText="ログアウトする"
         title="ログアウトをしますか？"
       />
