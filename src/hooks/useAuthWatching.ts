@@ -9,7 +9,7 @@ export const useAuthWatching = () => {
 
   useEffect(() => {
     const unSub = auth.onAuthStateChanged((authUser) => {
-      authUser ? router.push("/") : router.push("/login");
+      !authUser && router.push("/login");
     });
     return () => unSub();
   }, [auth.currentUser]);
