@@ -13,7 +13,7 @@ const Dialog = (props: DialogProps) => {
   return (
     <div
       className={classNames(
-        "absolute h-screen w-screen bg-gray-800 bg-opacity-80 z-50",
+        "fixed h-full w-screen bg-gray-800 bg-opacity-80 z-50 top-0 left-0",
         props.open ? "block" : "hidden"
       )}
     >
