@@ -7,6 +7,7 @@ interface DialogProps {
   title: string;
   open: boolean;
   onClose: () => void;
+  onClick: () => void;
 }
 
 const Dialog = (props: DialogProps) => {
@@ -28,7 +29,7 @@ const Dialog = (props: DialogProps) => {
           <PrimaryButton color="white" small onClick={props.onClose}>
             キャンセル
           </PrimaryButton>
-          <PrimaryButton color="indigo" small>
+          <PrimaryButton color="indigo" small onClick={props.onClick}>
             {props.buttonText}
           </PrimaryButton>
         </div>
