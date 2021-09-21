@@ -7,6 +7,7 @@ import MenuCard from "components/molecules/MenuCard";
 import PrimaryButton from "components/atoms/PrimaryButton";
 import Dialog from "components/atoms/Dialog";
 import { useRouter } from "next/dist/client/router";
+import { useAuthWatching } from "hooks/useAuthWatching";
 
 interface MainLayoutTemplateProps {
   children: ReactNode;
@@ -21,7 +22,7 @@ const ACCORDION_ITEMS = [
       {
         label: "学習するにあたって",
         id: 1,
-        link: null,
+        link: "https://note.com/preview/n4abf6329f22f?prev_access_key=b706812c61596693dcd5c9daceabd080",
       },
       {
         label: "ブランド転売とは",
@@ -46,7 +47,7 @@ const ACCORDION_ITEMS = [
       {
         label: "セカストオンライン勉強法",
         id: 2,
-        link: "https://note.com/preview/n71ff64fc9a92?prev_access_key=8b11898e38c1b7140b2fbd8d21fcb9e3",
+        link: "https://note.com/preview/n71ff64fc9a92?prev_access_key=0923d8576aa42261b76f61fe7e4fa7d5",
       },
       {
         label: "セカストオンライン10%オフで購入",
@@ -166,6 +167,8 @@ const ACCORDION_VIDEO_ITEMS = [
 ];
 
 const MainLayoutTemplate = (props: MainLayoutTemplateProps) => {
+  useAuthWatching();
+
   const [open, handleOpen] = useReducer((checked) => !checked, false);
   const router = useRouter();
   const contents = ACCORDION_ITEMS;
@@ -177,6 +180,7 @@ const MainLayoutTemplate = (props: MainLayoutTemplateProps) => {
   const handleDialogClose = () => {
     handleOpen();
   };
+
   return (
     <>
       <Dialog
