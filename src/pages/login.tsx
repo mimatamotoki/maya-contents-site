@@ -6,6 +6,7 @@ import { validationEmail, validationEmptyValue } from "validations";
 import LoginIcon from "assets/Login";
 import { signInEmailPassword } from "../firebase/firebase";
 import { useRouter } from "next/dist/client/router";
+import LoginLayoutTemplate from "components/templates/LoginLayoutTemplate";
 
 interface Validations {
   username: string;
@@ -68,7 +69,7 @@ const LoginPage: NextPage = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen">
+    <LoginLayoutTemplate>
       <h2 className="text-3xl mb-5 flex items-center">
         ログイン
         <LoginIcon className="ml-2" />
@@ -79,7 +80,7 @@ const LoginPage: NextPage = () => {
         validationError={validationError}
         onSubmit={handleOnSubmit}
       />
-    </div>
+    </LoginLayoutTemplate>
   );
 };
 
