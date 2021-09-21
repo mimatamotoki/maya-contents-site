@@ -10,4 +10,5 @@ export interface InputField {
   defaultValue: string;
   handleBlur: (value: string) => void;
   type: "oneLine" | "multiline";
+  password?: boolean;
 }

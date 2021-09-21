@@ -20,6 +20,10 @@
   transform: translateX(-50%);
 }
 
+.translate-y-50 {
+  transform: translateY(-45%);
+}
+
 .max-w-90 {
   max-width: 90%;
 }

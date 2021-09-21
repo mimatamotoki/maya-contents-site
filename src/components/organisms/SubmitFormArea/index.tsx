@@ -23,23 +23,22 @@ const SubmitFormArea = (props: SubmitFormAreaProps) => {
       onSubmit={handleOnSubmit}
     >
       {props.inputFields
-        ? props.inputFields.map((field) => {
-            return (
-              <TextInput
-                key={field.label}
-                className="mb-6"
-                error={
-                  props.validationError
-                    ? props.validationError[field.accessor]
-                    : undefined
-                }
-                label={field.label}
-                defaultValue={field.defaultValue}
-                multiline={field.type === "multiline"}
-                handleBlur={field.handleBlur}
-              />
-            );
-          })
+        ? props.inputFields.map((field) => (
+            <TextInput
+              key={field.label}
+              className="mb-6"
+              error={
+                props.validationError
+                  ? props.validationError[field.accessor]
+                  : undefined
+              }
+              label={field.label}
+              defaultValue={field.defaultValue}
+              multiline={field.type === "multiline"}
+              handleBlur={field.handleBlur}
+              password={field.password}
+            />
+          ))
         : null}
       <PrimaryButton type="submit" className="mt-4 rounded-sm" color="indigo">
         {props.buttonText}

@@ -34,6 +34,7 @@ const LoginPage: NextPage = () => {
       defaultValue: password,
       handleBlur: (v: string) => setPassword(v),
       type: "oneLine",
+      password: true,
     },
   ];
 

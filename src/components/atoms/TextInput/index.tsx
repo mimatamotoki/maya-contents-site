@@ -1,6 +1,9 @@
 import ExclamationCircle from "assets/ExclamationCircle";
+import EyeIcon from "assets/Eye";
+import EyeOffIcon from "assets/EyeOff";
 import classNames from "classnames";
-import { FocusEvent } from "react";
+import { FocusEvent, useReducer } from "react";
+import PrimaryButton from "../PrimaryButton";
 
 interface TextInputProps {
   className?: string;
@@ -13,6 +16,10 @@ interface TextInputProps {
 }
 
 const TextInput = (props: TextInputProps) => {
+  const [isVisible, toggleIsVisible] = useReducer(
+    (isVisible) => !isVisible,
+    props.password
+  );
   const handleOnBlur = (
     e: FocusEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -31,9 +38,24 @@ const TextInput = (props: TextInputProps) => {
           onBlur={handleOnBlur}
           rows={4}
         />
+      ) : props.password ? (
+        <div className="relative">
+          <input
+            type={isVisible ? "password" : "text"}
+            className={inputStyle}
+            defaultValue={props.defaultValue}
+            onBlur={handleOnBlur}
+          />
+          <PrimaryButton
+            className="absolute top-1/2 right-1 translate-y-50"
+            onClick={toggleIsVisible}
+          >
+            {isVisible ? <EyeIcon /> : <EyeOffIcon />}
+          </PrimaryButton>
+        </div>
       ) : (
         <input
-          type={props.password ? "password" : "text"}
+          type={"text"}
           className={inputStyle}
           defaultValue={props.defaultValue}
           onBlur={handleOnBlur}
