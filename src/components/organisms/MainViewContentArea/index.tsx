@@ -3,7 +3,7 @@ import ContentArea from "components/atoms/ContentArea";
 const MainViewContentArea = () => {
   return (
     <ContentArea>
-      <p>さん僕のブランド転売コンサルにようこそ！</p>
+      <p>僕のブランド転売コンサルにようこそ！</p>
       <br />
       <p>
         一般的に見たら決して安くない金額ですが、勇気を振り絞ってくださりありがとうございました！！
