@@ -4,6 +4,8 @@ import { InputField } from "types";
 import SubmitFormArea from "components/organisms/SubmitFormArea";
 import { validationEmail, validationEmptyValue } from "validations";
 import LoginIcon from "assets/Login";
+import { signInEmailPassword } from "../firebase/firebase";
+import { useRouter } from "next/dist/client/router";
 
 interface Validations {
   username: string;
@@ -12,6 +14,7 @@ interface Validations {
 }
 
 const LoginPage: NextPage = () => {
+  const router = useRouter();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [validationError, setValidationError] =
@@ -56,9 +59,11 @@ const LoginPage: NextPage = () => {
     return true;
   };
 
-  const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleOnSubmit = async (e: FormEvent<HTMLFormElement>) => {
     if (!validationInputValue()) return;
-    console.log();
+    await signInEmailPassword(email, password)
+      .then(() => router.push("/"))
+      .catch(() => alert("ログインに失敗しました。"));
   };
 
   return (

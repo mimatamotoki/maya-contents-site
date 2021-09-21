@@ -1,16 +1,10 @@
-import firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/firestore";
-import "firebase/storage";
-import "firebase/functions";
+import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "./firebase.config";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
+const app = initializeApp(firebaseConfig);
 
-export const auth = firebase.auth();
-export const db = firebase.firestore();
-export const storage = firebase.storage();
-export const functions = firebase.functions();
-export const provider = new firebase.auth.GoogleAuthProvider();
+export const auth = getAuth();
+export const signInEmailPassword = async (email: string, password: string) => {
+  await signInWithEmailAndPassword(auth, email, password);
+};
