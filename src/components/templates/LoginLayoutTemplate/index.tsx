@@ -1,3 +1,4 @@
+import { useAuthWatching } from "hooks/useAuthWatching";
 import { NextSeo } from "next-seo";
 import { ReactNode } from "react";
 
@@ -6,6 +7,8 @@ interface LoginLayoutTemplateProps {
 }
 
 const LoginLayoutTemplate = (props: LoginLayoutTemplateProps) => {
+  useAuthWatching();
+
   return (
     <>
       <NextSeo
