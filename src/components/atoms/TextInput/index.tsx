@@ -17,7 +17,7 @@ interface TextInputProps {
 
 const TextInput = (props: TextInputProps) => {
   const [isVisible, toggleIsVisible] = useReducer(
-    (isVisible) => !isVisible,
+    (isVisible: boolean) => !isVisible,
     props.password
   );
   const handleOnBlur = (
@@ -47,6 +47,7 @@ const TextInput = (props: TextInputProps) => {
             onBlur={handleOnBlur}
           />
           <PrimaryButton
+            type="button"
             className="absolute top-1/2 right-1 translate-y-50"
             onClick={toggleIsVisible}
           >
