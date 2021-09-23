@@ -6,8 +6,8 @@ interface DialogProps {
   buttonText: string;
   title: string;
   open: boolean;
-  onClose: () => void;
-  onClick: () => void;
+  onClose?: () => void;
+  onClick?: () => void;
 }
 
 const Dialog = (props: DialogProps) => {
@@ -26,12 +26,16 @@ const Dialog = (props: DialogProps) => {
         </header>
         <div className="mt-2 ml-2 mb-8 text-center">{props.title}</div>
         <div className="flex justify-around">
-          <PrimaryButton color="white" small onClick={props.onClose}>
-            キャンセル
-          </PrimaryButton>
-          <PrimaryButton color="indigo" small onClick={props.onClick}>
-            {props.buttonText}
-          </PrimaryButton>
+          {props.onClose ? (
+            <PrimaryButton color="white" small onClick={props.onClose}>
+              キャンセル
+            </PrimaryButton>
+          ) : null}
+          {props.onClick ? (
+            <PrimaryButton color="indigo" small onClick={props.onClick}>
+              {props.buttonText}
+            </PrimaryButton>
+          ) : null}
         </div>
       </div>
     </div>
