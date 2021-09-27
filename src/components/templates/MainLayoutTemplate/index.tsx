@@ -28,7 +28,7 @@ const ACCORDION_ITEMS = [
       {
         label: "ブランド転売とは",
         id: 2,
-        link: null,
+        link: "/content/2",
       },
       {
         label: "アプリ以外で用意してほしいもの",

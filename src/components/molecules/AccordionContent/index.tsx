@@ -47,7 +47,7 @@ const AccordionContent = (props: AccordionContentProps) => {
               {props.items.map((item) => (
                 <ContentItem
                   key={item.label}
-                  link={item.link ? item.link : `/content/${item.id}`}
+                  link={item.link}
                   isContent
                   text={item.label}
                   toggleIsOpenHeight={toggleIsOpenHeight}
