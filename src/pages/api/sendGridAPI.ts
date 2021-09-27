@@ -1,27 +1,26 @@
-import * as sendgrid from "@sendgrid/mail";
+const sgMail = require("@sendgrid/mail");
 
-export class SendGridAPI {
-  static sendMail(data: {
-    to: string;
-    from: string;
-    subject: string;
-    text: string;
-  }) {
-    sendgrid.setApiKey("YOUR API KEY");
-    const msg = {
-      to: data.to,
-      from: data.from,
-      subject: data.subject,
-      text: data.text,
-    };
-    sendgrid
-      .send(msg)
-      .then((_) => {
-        console.log("success to sendGrid");
-      })
-      .catch((error) => {
-        console.log("failed to sendGrid");
-        console.log(error);
-      });
+export default async (req, res) => {
+  sgMail.setApiKey(process.env.NEXT_PUBLIC_INQUIRY_APIKEY);
+
+  const { email, message, name } = req.body;
+
+  const msg = {
+    to: "maya.moto10094376@gmail.com",
+    from: email,
+    subject: name + "さんからお問合せがありました。",
+    text: `
+    名前：${name}さん
+    メールアドレス：${email}
+    内容：${message}
+    `,
+  };
+
+  try {
+    await sgMail.send(msg);
+    res.status(200).send("Message sent successfully.");
+  } catch (error) {
+    console.log("Error", error);
+    res.status(400).send("Message not sent.");
   }
-}
+};

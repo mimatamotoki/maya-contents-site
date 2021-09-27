@@ -4,7 +4,9 @@ import MainLayoutTemplate from "components/templates/MainLayoutTemplate";
 import { FormEvent, useState } from "react";
 import { InputField } from "types";
 import { validationEmail, validationEmptyValue } from "validations";
-import useSWR from "swr";
+import { useMemo } from "react";
+import { useRouter } from "next/dist/client/router";
+import Dialog from "components/atoms/Dialog";
 
 interface Validations {
   name: string;
@@ -18,30 +20,35 @@ const InquiryPage: NextPage = () => {
   const [description, setDescription] = useState<string>("");
   const [validationError, setValidationError] =
     useState<Validations>(undefined);
+  const [open, setOpen] = useState(false);
+  const router = useRouter();
 
-  const inputFields: InputField[] = [
-    {
-      accessor: "name",
-      label: "名前",
-      defaultValue: name,
-      handleBlur: (v: string) => setName(v),
-      type: "oneLine",
-    },
-    {
-      accessor: "email",
-      label: "メールアドレス",
-      defaultValue: email,
-      handleBlur: (v: string) => setEmail(v),
-      type: "oneLine",
-    },
-    {
-      accessor: "description",
-      label: "お問い合わせ内容",
-      defaultValue: description,
-      handleBlur: (v: string) => setDescription(v),
-      type: "multiline",
-    },
-  ];
+  const inputFields: InputField[] = useMemo(
+    () => [
+      {
+        accessor: "name",
+        label: "名前",
+        defaultValue: name,
+        handleBlur: (v: string) => setName(v),
+        type: "oneLine",
+      },
+      {
+        accessor: "email",
+        label: "メールアドレス",
+        defaultValue: email,
+        handleBlur: (v: string) => setEmail(v),
+        type: "oneLine",
+      },
+      {
+        accessor: "description",
+        label: "お問い合わせ内容",
+        defaultValue: description,
+        handleBlur: (v: string) => setDescription(v),
+        type: "multiline",
+      },
+    ],
+    [name, email, description]
+  );
 
   const validationInputValue = () => {
     const validations: Validations = {
@@ -69,15 +76,29 @@ const InquiryPage: NextPage = () => {
     return true;
   };
 
-  const handleOnSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleOnSubmit = async (e: FormEvent<HTMLFormElement>) => {
     if (!validationInputValue()) return;
 
-    // SendGridUseCase.sendMail({
-    //   to: "mima.moto1009@gmail.com",
-    //   from: email,
-    //   subject: "お問い合わせを受け付けました。",
-    //   text: description,
-    // });
+    const res = await fetch("/api/sendGridAPI", {
+      body: JSON.stringify({
+        email: email,
+        name: name,
+        message: description,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+
+    if (res.status === 200) {
+      setOpen(true);
+    }
+  };
+
+  const handleDialogClick = () => {
+    setOpen(false);
+    router.push("/");
   };
 
   return (
@@ -85,6 +106,12 @@ const InquiryPage: NextPage = () => {
       page="お問い合わせ"
       description="お問い合わせページです。"
     >
+      <Dialog
+        open={open}
+        onClick={handleDialogClick}
+        title={"お問い合わせ成功しました。"}
+        buttonText={"OK"}
+      />
       <SubmitFormArea
         buttonText="送信する"
         inputFields={inputFields}
