@@ -31,15 +31,20 @@ const MovieContent = () => {
   const id = Number(router.query.id);
   const movieContainerRef = useRef<HTMLDivElement>(null);
   const [opts, setOpts] = useState<Options>();
+  const [paddings, setPaddings] = useState<number>(32);
 
   useEffect(() => {
-    const width = movieContainerRef.current.getBoundingClientRect().width - 32;
+    const currentPadding = +movieContainerRef.current.style.paddingLeft;
+    if (paddings === currentPadding) return;
+    setPaddings(currentPadding * 2);
+    const width =
+      movieContainerRef.current.getBoundingClientRect().width - paddings;
     const height = `${(width / 16) * 9}`;
     setOpts({
       width: `${width}`,
       height: `${height}`,
     });
-  }, []);
+  }, [opts]);
 
   useEffect(() => {
     setMovie(movies.find((movie) => movie.id === id));
@@ -47,7 +52,7 @@ const MovieContent = () => {
 
   return (
     <MainLayoutTemplate page="解説動画" description="解説動画ページです。">
-      <div className="p-4 w-full xl:w-2/3" ref={movieContainerRef}>
+      <div className="px-4 xl:px-12 w-full xl:w-2/3" ref={movieContainerRef}>
         {movie ? (
           <Youtube className="mt-6" videoId={movie.video} opts={opts} />
         ) : null}
