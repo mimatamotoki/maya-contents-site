@@ -156,12 +156,17 @@ const ACCORDION_ITEMS = [
 
 const ACCORDION_VIDEO_ITEMS = [
   {
-    title: "",
+    title: "解説動画アーカイブ",
     items: [
       {
-        label: "",
+        label: "④coach",
         id: 1,
-        link: "",
+        link: "/content/movie/1",
+      },
+      {
+        label: "ヤフオク仕入れ",
+        id: 2,
+        link: "/content/movie/2",
       },
     ],
   },
