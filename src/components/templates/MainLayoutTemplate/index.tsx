@@ -105,6 +105,11 @@ const ACCORDION_ITEMS = [
         id: 2,
         link: "https://note.com/preview/n9c6ff2fe1a47?prev_access_key=d3e9d39d4b45b1f9a5bc7e70956c8454",
       },
+      {
+        label: "ヤフオク仕入れ",
+        id: 3,
+        link: "/content/movie/2",
+      },
     ],
   },
   {
@@ -163,11 +168,6 @@ const ACCORDION_VIDEO_ITEMS = [
         id: 1,
         link: "/content/movie/1",
       },
-      {
-        label: "ヤフオク仕入れ",
-        id: 2,
-        link: "/content/movie/2",
-      },
     ],
   },
 ];
@@ -219,7 +219,7 @@ const MainLayoutTemplate = (props: MainLayoutTemplateProps) => {
                   />
                 ))}
               </MenuCard>
-              <MenuCard className="mb-3" title="動画コンテンツ一覧">
+              <MenuCard className="mb-3" title="ブランド解説動画">
                 {video_contents.map((content) => (
                   <AccordionContent
                     key={content.title}
