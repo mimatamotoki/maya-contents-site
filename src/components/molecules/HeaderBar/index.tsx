@@ -3,7 +3,7 @@ import BarItemButton from "components/atoms/BarItemButton";
 const HEADER_BAR_ITEMS = [
   {
     label: "ホーム",
-    link: "/",
+    link: "/main",
   },
   {
     label: "お問い合わせ",
