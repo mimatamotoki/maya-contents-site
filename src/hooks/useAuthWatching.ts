@@ -10,11 +10,11 @@ export const useAuthWatching = () => {
   useEffect(() => {
     const unSub = auth.onAuthStateChanged((authUser) => {
       if (!authUser) {
-        router.push("/login");
+        router.push("/");
         return;
       }
-      if (router.pathname === "/login") {
-        router.push("/");
+      if (router.pathname === "/") {
+        router.push("/main");
       }
     });
     return () => unSub();
