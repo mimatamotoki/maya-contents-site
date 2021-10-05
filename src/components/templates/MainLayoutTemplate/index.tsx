@@ -108,7 +108,7 @@ const ACCORDION_ITEMS = [
       {
         label: "ヤフオク仕入れ",
         id: 3,
-        link: "/content/movie/2",
+        link: "/content/movie/-eMKayQqkK0",
       },
     ],
   },
@@ -164,9 +164,14 @@ const ACCORDION_VIDEO_ITEMS = [
     title: "解説動画アーカイブ",
     items: [
       {
-        label: "④coach",
+        label: "②イルビゾンテ",
         id: 1,
-        link: "/content/movie/1",
+        link: "/content/movie/oANYsuzb4Hw",
+      },
+      {
+        label: "④coach",
+        id: 2,
+        link: "/content/movie/LZ-IuDos9Kk",
       },
     ],
   },
