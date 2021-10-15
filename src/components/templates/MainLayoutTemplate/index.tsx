@@ -9,6 +9,7 @@ import Dialog from "components/atoms/Dialog";
 import { useRouter } from "next/dist/client/router";
 import { useAuthWatching } from "hooks/useAuthWatching";
 import { logout } from "../../../firebase/firebase";
+import Link from "next/link";
 
 interface MainLayoutTemplateProps {
   children: ReactNode;
@@ -237,6 +238,9 @@ const MainLayoutTemplate = (props: MainLayoutTemplateProps) => {
                 <PrimaryButton small onClick={handleOpen}>
                   ログアウト
                 </PrimaryButton>
+                <Link href="https://note.com/preview/n242ab918c235?prev_access_key=10799dd22a9ef2569c1c6fe75d83a538">
+                  <a className="block text-sm px-4 py-2">利用規約</a>
+                </Link>
               </MenuCard>
             </div>
           ) : null}
