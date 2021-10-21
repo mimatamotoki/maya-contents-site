@@ -111,6 +111,11 @@ const ACCORDION_ITEMS = [
         id: 3,
         link: "/content/movie/-eMKayQqkK0",
       },
+      {
+        label: "ヤフオク出品",
+        id: 4,
+        link: "/content/movie/QSRebnPv1XA",
+      },
     ],
   },
   {
