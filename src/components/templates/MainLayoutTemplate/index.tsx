@@ -170,14 +170,39 @@ const ACCORDION_VIDEO_ITEMS = [
     title: "解説動画アーカイブ",
     items: [
       {
-        label: "②イルビゾンテ",
+        label: "①FURLA",
         id: 1,
+        link: "/content/movie/jpaXwEmSimY",
+      },
+      {
+        label: "②イルビゾンテ",
+        id: 2,
         link: "/content/movie/oANYsuzb4Hw",
       },
       {
+        label: "③トリーバーチ",
+        id: 3,
+        link: "/content/movie/7q2jaBD1Q9A",
+      },
+      {
         label: "④coach",
-        id: 2,
+        id: 4,
         link: "/content/movie/LZ-IuDos9Kk",
+      },
+      {
+        label: "⑤MCM",
+        id: 5,
+        link: "/content/movie/vTuxgAvNszc",
+      },
+      {
+        label: "⑥ロンシャン",
+        id: 6,
+        link: "/content/movie/NEVF6B9NoRo",
+      },
+      {
+        label: "⑦ジャンニキャリーニ",
+        id: 7,
+        link: "/content/movie/T5F4dG6dmyo",
       },
     ],
   },
