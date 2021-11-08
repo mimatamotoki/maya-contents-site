@@ -204,6 +204,16 @@ const ACCORDION_VIDEO_ITEMS = [
         id: 7,
         link: "/content/movie/T5F4dG6dmyo",
       },
+      {
+        label: "⑧マークジェイコブス",
+        id: 8,
+        link: "/content/movie/7D_HXBMcsUY",
+      },
+      {
+        label: "⑨クロエ",
+        id: 9,
+        link: "/content/movie/ryLI47i6p_k",
+      },
     ],
   },
 ];
