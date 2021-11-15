@@ -214,6 +214,11 @@ const ACCORDION_VIDEO_ITEMS = [
         id: 9,
         link: "/content/movie/ryLI47i6p_k",
       },
+      {
+        label: "⑩アタオ",
+        id: 10,
+        link: "/content/movie/CiPFHFCUX3U",
+      },
     ],
   },
 ];
